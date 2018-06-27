@@ -11,6 +11,14 @@ class Player {
   render() {
     ctx.drawImage(Resources.get(this.sprite), this.x * 101, this.y * 83);
   }
+
+  update() {
+
+  }
+
+  handleInput() {
+    
+  }
 }
 
 class Enemy {
@@ -23,6 +31,11 @@ class Enemy {
   // Draw the enemy on the screen, required method for game
   render() {
     ctx.drawImage(Resources.get(this.sprite), this.x * 101, this.y * 83);
+  }
+
+  update(dt) {
+    this.boundaryX = this.x > 5;
+    this.boundaryY = this.y < 1;
   }
 }
 
