@@ -55,6 +55,16 @@ class Enemy {
       this.x += dt;
     }
   }
+
+  checkCollisions(player) {
+    if (this.y === player.y) {
+      if (this.x >= player.x - 0.3 && this.x <= player.x + 0.3) {
+        return true;
+      }
+    } else {
+      return false;
+    }
+  }
 }
 
 // Enemies our player must avoid
