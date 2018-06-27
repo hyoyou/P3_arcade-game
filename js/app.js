@@ -17,7 +17,7 @@ class Player {
   }
 
   handleInput() {
-    
+
   }
 }
 
@@ -35,7 +35,12 @@ class Enemy {
 
   update(dt) {
     this.boundaryX = this.x > 5;
-    this.boundaryY = this.y < 1;
+
+    if (this.boundaryX) {
+      this.x = -1;
+    } else {
+      this.x += dt;
+    }
   }
 }
 
