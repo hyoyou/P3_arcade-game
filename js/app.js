@@ -12,12 +12,25 @@ class Player {
     ctx.drawImage(Resources.get(this.sprite), this.x * 101, this.y * 83);
   }
 
-  update() {
-
+  update(dt) {
+    this.boundaryX = this.x > 5;
+    this.boundaryY = this.y < 1;
   }
 
-  handleInput() {
-
+  handleInput(input) {
+    switch(input) {
+        case 'left':
+          this.x = this.x > 0 ? this.x - 1 : this.x;
+          break;
+        case 'right':
+          this.x = this.x < 4 ? this.x + 1 : this.x;
+          break;
+        case 'up':
+          this.y = this.y > 0 ? this.y - 1 : this.y;
+          break;
+        case 'down':
+          this.y = this.y < 5 ? this.y + 1 : this.y;
+    }
   }
 }
 
