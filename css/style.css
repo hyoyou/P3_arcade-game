@@ -1,3 +1,87 @@
+.title {
+  background-color: black;
+  margin-top: 2px;
+  margin: auto;
+  width: 731px;
+  padding: 10px 0;
+}
+
+h1 {
+  color: #C23912;
+  font-family: 'Chewy', cursive;
+  font-size: 3em;
+  -webkit-margin-before: 0em;
+  -webkit-margin-after: 0em;
+  -webkit-text-stroke: 1px black;
+  text-shadow:
+    3px 3px 0 #FFF,
+    -1px -1px 0 #FFF,
+    1px -1px 0 #FFF,
+    -1px 1px 0 #FFF,
+    1px 1px 0 #FFF;
+}
+
+p {
+  color: #C23912;
+  font-family: 'Exo 2', sans-serif;
+  font-size: 1.5em;
+  -webkit-margin-before: 0em;
+  -webkit-margin-after: 0em;
+  -webkit-text-stroke: 1px black;
+}
+
 body {
-    text-align: center;
+  background-color: #77BD59;
+  text-align: center;
+}
+
+.game {
+  clear: both;
+  display: table;
+  margin: 0 auto;
+}
+
+canvas {
+  float: left;
+  padding-left: 10px;
+  padding-right: 10px;
+  border: solid 1px black;
+  -moz-box-shadow:    inset 0 0 10px #000000;
+  -webkit-box-shadow: inset 0 0 10px #000000;
+  box-shadow:         inset 0 0 10px #000000;
+}
+
+.module-left {
+  float: left;
+  margin-right: 2px;
+  border-bottom: 1px grey solid;
+  width: 100px;
+  height: 610px;
+  background-color: black;
+}
+
+.module-right {
+  float: left;
+  margin-left: 2px;
+  border-bottom: 1px grey solid;
+  width: 100px;
+  height: 610px;
+  background-color: black;
+}
+
+.trapezoid{
+  clear: left;
+  width: 731px;
+  margin: 0 auto;
+  border-left: solid 30px transparent;
+  border-right: solid 30px transparent;
+  border-bottom: solid 40px #000;
+}
+
+.controller {
+  background-color: black;
+  border: 1px grey solid;
+  padding: 2% 0;
+  margin: auto;
+  width: 791px;
 }

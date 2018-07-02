@@ -6,15 +6,23 @@ class Player {
     this.sprite = 'images/char-boy.png';
     this.x = 2;
     this.y = 5;
+    this.playing = false;
+    this.won = false;
   }
 
   render() {
     ctx.drawImage(Resources.get(this.sprite), this.x * 101, this.y * 83);
+    this.playing = false;
   }
 
   update(dt) {
     this.boundaryX = this.x > 5;
     this.boundaryY = this.y < 1;
+
+    if (this.boundaryY && !this.playing && !this.won) {
+      alert("Winner!");
+      this.win = true;
+    }
   }
 
   handleInput(input) {
@@ -30,11 +38,17 @@ class Player {
           break;
         case 'down':
           this.y = this.y < 5 ? this.y + 1 : this.y;
+        default:
+          break;
     }
+    this.playing = true;
   }
 }
 
+// Enemies our player must avoid
 class Enemy {
+  // The image/sprite for our enemies, this uses
+  // a helper we've provided to easily load images
   constructor(x, y) {
     this.sprite = 'images/enemy-bug.png';
     this.x = x;
@@ -46,6 +60,11 @@ class Enemy {
     ctx.drawImage(Resources.get(this.sprite), this.x * 101, this.y * 83);
   }
 
+  // Update the enemy's position, required method for game
+  // Parameter: dt, a time delta between ticks
+  // You should multiply any movement by the dt parameter
+  // which will ensure the game runs at the same speed for
+  // all computers.
   update(dt) {
     this.boundaryX = this.x > 5;
 
@@ -67,31 +86,11 @@ class Enemy {
   }
 }
 
-// Enemies our player must avoid
-// var Enemy = function() {
-    // Variables applied to each of our instances go here,
-    // we've provided one for you to get started
-
-    // The image/sprite for our enemies, this uses
-    // a helper we've provided to easily load images
-//     this.sprite = 'images/enemy-bug.png';
-// };
-
-// Update the enemy's position, required method for game
-// Parameter: dt, a time delta between ticks
-// Enemy.prototype.update = function(dt) {
-    // You should multiply any movement by the dt parameter
-    // which will ensure the game runs at the same speed for
-    // all computers.
-// };
-
 // Now instantiate your objects
 // Place all enemy objects in an array called allEnemies
 // Place the player object in a variable called player
 const allEnemies = [...Array(3)].map((_, i) => new Enemy(0, i + 1));
 const player = new Player();
-
-
 
 // This listens for key presses and sends the keys to your
 // Player.handleInput() method. You don't need to modify this.
