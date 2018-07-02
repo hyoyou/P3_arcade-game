@@ -40,18 +40,16 @@ body {
   clear: both;
   display: table;
   margin: 0 auto;
-  overflow-y: scroll;
-  white-space: nowrap;
 }
 
 canvas {
-  display: inline-block;
+  float: left;
   padding-left: 10px;
   padding-right: 10px;
 }
 
 .module-left {
-  display: inline-block;
+  float: left;
   margin-right: 2px;
   border-bottom: 1px grey solid;
   width: 100px;
@@ -60,7 +58,7 @@ canvas {
 }
 
 .module-right {
-  display: inline-block;
+  float: left;
   margin-left: 2px;
   border-bottom: 1px grey solid;
   width: 100px;
