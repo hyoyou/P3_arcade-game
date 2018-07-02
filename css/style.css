@@ -82,3 +82,16 @@ canvas {
   margin: auto;
   width: 791px;
 }
+
+@media screen and (max-width: 815px) {
+  .title {
+    background-color: #77BD59;
+    margin-top: 2px;
+    margin: auto;
+    width: 50%;
+  }
+
+  .module-left, .module-right, .trapezoid, .controller {
+    display: none;
+  }
+}
