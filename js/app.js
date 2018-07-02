@@ -9,22 +9,21 @@ class Player {
     this.sprite = 'images/char-boy.png';
     this.x = 2;
     this.y = 5;
-    this.playing = false;
-    this.won = false;
   }
 
   render() {
     ctx.drawImage(Resources.get(this.sprite), this.x * 101, this.y * 83);
-    this.playing = false;
   }
 
   update(dt) {
     this.boundaryX = this.x > 5;
     this.boundaryY = this.y < 1;
 
-    if (this.boundaryY && !this.playing && !this.won) {
-      alert("Winner!");
-      this.win = true;
+    // Check to see if player has won
+    if (this.boundaryY && !this.playing) {
+      this.x = 2; // Move player back to starting point
+      this.y = 5;
+      enemySpeed++; // Increase enemy speed
     }
   }
 
@@ -44,7 +43,6 @@ class Player {
         default:
           break;
     }
-    this.playing = true;
   }
 }
 
