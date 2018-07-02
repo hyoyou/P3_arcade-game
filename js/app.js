@@ -1,3 +1,6 @@
+// Game variables
+let enemySpeed = 1;
+
 // Now write your own player class
 // This class requires an update(), render() and
 // a handleInput() method.
@@ -49,10 +52,11 @@ class Player {
 class Enemy {
   // The image/sprite for our enemies, this uses
   // a helper we've provided to easily load images
-  constructor(x, y) {
+  constructor(x, y, speed) {
     this.sprite = 'images/enemy-bug.png';
     this.x = x;
     this.y = y;
+    this.speed = speed + Math.floor(Math.random() * enemySpeed);
   }
 
   // Draw the enemy on the screen, required method for game
@@ -71,7 +75,9 @@ class Enemy {
     if (this.boundaryX) {
       this.x = -1;
     } else {
-      this.x += dt;
+      // Average speed = distance travelled (= change in x) / time travelled (= dt)
+      // this.x = this.x + (dt)
+      this.x += this.speed * dt;
     }
   }
 
@@ -89,7 +95,7 @@ class Enemy {
 // Now instantiate your objects
 // Place all enemy objects in an array called allEnemies
 // Place the player object in a variable called player
-const allEnemies = [...Array(3)].map((_, i) => new Enemy(0, i + 1));
+const allEnemies = [...Array(3)].map((_, i) => new Enemy(0, i + 1, 1));
 const player = new Player();
 
 // This listens for key presses and sends the keys to your
