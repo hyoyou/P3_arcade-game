@@ -1,11 +1,30 @@
 // Game variables
 let enemySpeed = 1;
 let score = 100;
+let level = 1;
+let lives = 5;
 let scoreDisplay = document.querySelector('.score');
+let levelDisplay = document.querySelector('.level');
+let livesDisplay = document.querySelector('.lives');
 
 function updateScore() {
   score += 100;
   scoreDisplay.innerText = score;
+}
+
+function levelUp() {
+  level++;
+  levelDisplay.innerText = level;
+}
+
+function lostLife() {
+  if (lives > 0) {
+    lives--;
+    livesDisplay.innerText = lives;
+  }
+  // else {
+  //   display modal
+  // }
 }
 
 // Now write your own player class
@@ -32,6 +51,7 @@ class Player {
       this.y = 5;
       enemySpeed++; // Increase enemy speed
       updateScore();
+      levelUp();
     }
   }
 
@@ -90,6 +110,7 @@ class Enemy {
   checkCollisions(player) {
     if (this.y === player.y) {
       if (this.x >= player.x - 0.3 && this.x <= player.x + 0.3) {
+        lostLife();
         return true;
       }
     } else {
