@@ -36,6 +36,10 @@ body {
   font-family: 'Exo 2', sans-serif;
 }
 
+span {
+  padding-right: 15px;
+}
+
 .game {
   clear: both;
   display: table;
@@ -100,5 +104,14 @@ canvas {
 
   .module-left, .module-right, .trapezoid, .controller {
     display: none;
+  }
+
+  .game-stats {
+    width: 50%;
+    background-color: #77BD59;
+  }
+
+  span {
+    padding-right: 10px;
   }
 }
