@@ -20,26 +20,26 @@ var Engine = (function(global) {
      */
     var doc = global.document,
         win = global.window,
-        div = doc.createElement('div'),
+        container = doc.createElement('div'),
         canvas = doc.createElement('canvas'),
-        div1 = doc.createElement('div'),
-        div2 = doc.createElement('div'),
+        left = doc.createElement('div'),
+        right = doc.createElement('div'),
         ctx = canvas.getContext('2d'),
         lastTime;
 
-    div.className = "game";
+    container.className = "game";
     canvas.width = 505;
     canvas.height = 606;
-    div1.width = 505;
-    div1.height = 606;
-    div1.className = "module-left";
-    div2.width = 505;
-    div2.height = 606;
-    div2.className = "module-right";
-    doc.body.appendChild(div);
-    div.appendChild(div1);
-    div.appendChild(canvas);
-    div.appendChild(div2);
+    left.width = 505;
+    left.height = 606;
+    left.className = "module-left";
+    right.width = 505;
+    right.height = 606;
+    right.className = "module-right";
+    doc.body.appendChild(container);
+    container.appendChild(left);
+    container.appendChild(canvas);
+    container.appendChild(right);
 
     /* This function serves as the kickoff point for the game loop itself
      * and handles properly calling the update and render methods.

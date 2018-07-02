@@ -83,6 +83,13 @@ canvas {
   width: 791px;
 }
 
+.game-stats {
+  width: 729px;
+  color: white;
+  background-color: black;
+  margin: auto;
+}
+
 @media screen and (max-width: 815px) {
   .title {
     background-color: #77BD59;

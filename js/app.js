@@ -1,5 +1,12 @@
 // Game variables
 let enemySpeed = 1;
+let score = 100;
+let scoreDisplay = document.querySelector('.score');
+
+function updateScore() {
+  score += 100;
+  scoreDisplay.innerText = score;
+}
 
 // Now write your own player class
 // This class requires an update(), render() and
@@ -24,6 +31,7 @@ class Player {
       this.x = 2; // Move player back to starting point
       this.y = 5;
       enemySpeed++; // Increase enemy speed
+      updateScore();
     }
   }
 
