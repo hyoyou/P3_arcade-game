@@ -1,5 +1,6 @@
 .title {
   background-color: black;
+  border-radius: 5px 5px 0 0;
   margin-top: 2px;
   margin: auto;
   width: 729px;
@@ -39,16 +40,18 @@ body {
   clear: both;
   display: table;
   margin: 0 auto;
+  overflow-y: scroll;
+  white-space: nowrap;
 }
 
 canvas {
-  float: left;
+  display: inline-block;
   padding-left: 10px;
   padding-right: 10px;
 }
 
 .module-left {
-  float: left;
+  display: inline-block;
   margin-right: 2px;
   border-bottom: 1px grey solid;
   width: 100px;
@@ -57,7 +60,7 @@ canvas {
 }
 
 .module-right {
-  float: left;
+  display: inline-block;
   margin-left: 2px;
   border-bottom: 1px grey solid;
   width: 100px;
