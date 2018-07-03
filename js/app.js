@@ -47,8 +47,8 @@ function lostLife() {
     modal.style.display = "block";
     modal.innerHTML = `<span>
                       <h2>Great play!</h2>
-                      <p>Total Score: ${score}</p>
-                      <p>Highest Level: ${level}</p>
+                      <h3>Total Score: ${score}</h3>
+                      <h3>Highest Level: ${level}</h3>
                       <br />
                       <button onClick="resetStats()">Play New Game</button>
                       </span>`

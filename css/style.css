@@ -37,6 +37,14 @@ h2 {
     1px 1px 0 #FFF;
 }
 
+h3 {
+  color: black;
+  font-family: 'Exo 2', sans-serif;
+  font-size: 1.75em;
+  -webkit-margin-before: 0em;
+  -webkit-margin-after: 0em;
+}
+
 p {
   color: #C23912;
   font-size: 1.5em;
@@ -53,6 +61,15 @@ body {
 
 span {
   padding-right: 15px;
+}
+
+button {
+  font-family: 'Exo 2', sans-serif;
+  font-size: 1.5em;
+  padding: 3px 5px;
+  border-radius: 12px;
+  cursor: pointer;
+  background-color: #77BD59;
 }
 
 .game {
@@ -111,16 +128,17 @@ canvas {
 
 #modal {
   display: none;
-  background-color: #77BD59;
+  background-color: #5068CB;
   opacity: .8;
   border-radius: 25px;
   z-index: 2;
   width: 300px;
-  height: 300px;
+  height: 200px;
   position: absolute;
   left: 50%;
-  top: 25%;
+  top: 30%;
   margin-left: -150px;
+  padding: 50px 0;
 }
 
 @media screen and (max-width: 815px) {
