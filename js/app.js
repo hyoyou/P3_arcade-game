@@ -75,7 +75,7 @@ class Player {
       this.x = 2; // Move player back to starting point if won
       this.y = 5;
       enemySpeed = enemySpeed + 0.25; // Increase enemy speed
-      allEnemies.push(new Enemy(0, Math.floor(Math.random() * (4 - 1) + 1), enemySpeed));
+      allEnemies.push(new Enemy(0, Math.floor(Math.random() * (5 - 1) + 1), enemySpeed));
       updateScore();
       levelUp();
     }
