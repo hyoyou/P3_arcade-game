@@ -1,6 +1,6 @@
 // Game variables
 let playing = true;
-let enemySpeed = 1;
+let enemySpeed = 0.5;
 let score = 100;
 let level = 1;
 let lives = 5;
@@ -70,7 +70,7 @@ class Player {
     if (this.boundaryY) {
       this.x = 2; // Move player back to starting point
       this.y = 5;
-      enemySpeed = enemySpeed + 0.5; // Increase enemy speed
+      enemySpeed = enemySpeed + 0.25; // Increase enemy speed
       allEnemies.push(new Enemy(0, Math.random() * (3 - 1) + 1, enemySpeed));
       updateScore();
       levelUp();
@@ -144,7 +144,7 @@ class Enemy {
 // Now instantiate your objects
 // Place all enemy objects in an array called allEnemies
 // Place the player object in a variable called player
-let allEnemies = [...Array(3)].map((_, i) => new Enemy(0, i + 1, 1));
+const allEnemies = [...Array(3)].map((_, i) => new Enemy(0, i + 1, Math.random() * (1 - 0.5) + 0.5));
 const player = new Player();
 
 // This listens for key presses and sends the keys to your
