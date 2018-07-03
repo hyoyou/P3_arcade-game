@@ -24,6 +24,7 @@ var Engine = (function(global) {
         canvas = doc.createElement('canvas'),
         left = doc.createElement('div'),
         right = doc.createElement('div'),
+        modal = doc.createElement('div'),
         ctx = canvas.getContext('2d'),
         lastTime;
 
@@ -36,10 +37,12 @@ var Engine = (function(global) {
     right.width = 505;
     right.height = 606;
     right.className = "module-right";
+    modal.setAttribute('id', 'modal');
     doc.body.appendChild(container);
     container.appendChild(left);
     container.appendChild(canvas);
     container.appendChild(right);
+    container.appendChild(modal);
 
     /* This function serves as the kickoff point for the game loop itself
      * and handles properly calling the update and render methods.

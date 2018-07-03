@@ -22,6 +22,21 @@ h1 {
     1px 1px 0 #FFF;
 }
 
+h2 {
+  color: #C23912;
+  font-family: 'Chewy', cursive;
+  font-size: 2em;
+  -webkit-margin-before: 0em;
+  -webkit-margin-after: 0em;
+  -webkit-text-stroke: 1px black;
+  text-shadow:
+    3px 3px 0 #FFF,
+    -1px -1px 0 #FFF,
+    1px -1px 0 #FFF,
+    -1px 1px 0 #FFF,
+    1px 1px 0 #FFF;
+}
+
 p {
   color: #C23912;
   font-size: 1.5em;
@@ -92,6 +107,20 @@ canvas {
   color: white;
   background-color: black;
   margin: auto;
+}
+
+#modal {
+  display: none;
+  background-color: #77BD59;
+  opacity: .8;
+  border-radius: 25px;
+  z-index: 2;
+  width: 300px;
+  height: 300px;
+  position: absolute;
+  left: 50%;
+  top: 25%;
+  margin-left: -150px;
 }
 
 @media screen and (max-width: 815px) {

@@ -1,4 +1,5 @@
 // Game variables
+let playing = true;
 let enemySpeed = 1;
 let score = 100;
 let level = 1;
@@ -6,6 +7,18 @@ let lives = 5;
 let scoreDisplay = document.querySelector('.score');
 let levelDisplay = document.querySelector('.level');
 let livesDisplay = document.querySelector('.lives');
+let modal = document.getElementById('modal');
+
+function resetStats() {
+  score = 100;
+  scoreDisplay.innerText = score;
+  level = 1;
+  levelDisplay.innerText = level;
+  lives = 5;
+  livesDisplay.innerText = lives;
+  modal.style.display = "none";
+  playing = true;
+}
 
 function updateScore() {
   score += 100;
@@ -18,13 +31,22 @@ function levelUp() {
 }
 
 function lostLife() {
-  if (lives > 0) {
+  if (lives > 1) {
     lives--;
     livesDisplay.innerText = lives;
+  } else {
+    playing = false;
+    lives--;
+    livesDisplay.innerText = lives;
+    modal.style.display = "block";
+    modal.innerHTML = `<span>
+                      <h2>Great play!</h2>
+                      <p>Total Score: ${score}</p>
+                      <p>Highest Level: ${level}</p>
+                      <br />
+                      <button onClick="resetStats()">Play New Game</button>
+                      </span>`
   }
-  // else {
-  //   display modal
-  // }
 }
 
 // Now write your own player class
@@ -135,5 +157,7 @@ document.addEventListener('keyup', function(e) {
         40: 'down'
     };
 
-    player.handleInput(allowedKeys[e.keyCode]);
+    if (playing === true) {
+      player.handleInput(allowedKeys[e.keyCode]);
+    }
 });
