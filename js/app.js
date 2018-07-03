@@ -41,7 +41,7 @@ function lostLife() {
     lives--;
     livesDisplay.innerText = lives;
   } else {
-    playing = false;
+    playing = false; // User can no longer use keyboard to move
     lives--;
     livesDisplay.innerText = lives;
     modal.style.display = "block";
@@ -81,6 +81,7 @@ class Player {
     }
   }
 
+  // Control movement of player to prevent moving off the board
   handleInput(input) {
     switch(input) {
         case 'left':
