@@ -9,6 +9,7 @@ let levelDisplay = document.querySelector('.level');
 let livesDisplay = document.querySelector('.lives');
 let modal = document.getElementById('modal');
 
+// Reset all game stats upon restart
 function resetStats() {
   score = 100;
   scoreDisplay.innerText = score;
@@ -17,9 +18,13 @@ function resetStats() {
   lives = 5;
   livesDisplay.innerText = lives;
   modal.style.display = "none";
+  score = 100;
   playing = true;
+  enemySpeed = 0.25;
+  allEnemies = [...Array(3)].map((_, i) => new Enemy(0, i + 1, Math.random() * (1 - 0.5) + 0.5));
 }
 
+// Update game stats
 function updateScore() {
   score += 100;
   scoreDisplay.innerText = score;
@@ -30,6 +35,7 @@ function levelUp() {
   levelDisplay.innerText = level;
 }
 
+// Display modal when game over
 function lostLife() {
   if (lives > 1) {
     lives--;
@@ -49,9 +55,7 @@ function lostLife() {
   }
 }
 
-// Now write your own player class
-// This class requires an update(), render() and
-// a handleInput() method.
+// Player class requires an update(), render() and a handleInput() method.
 class Player {
   constructor() {
     this.sprite = 'images/char-boy.png';
@@ -68,7 +72,7 @@ class Player {
 
     // Check to see if player has won
     if (this.boundaryY) {
-      this.x = 2; // Move player back to starting point
+      this.x = 2; // Move player back to starting point if won
       this.y = 5;
       enemySpeed = enemySpeed + 0.25; // Increase enemy speed
       allEnemies.push(new Enemy(0, Math.floor(Math.random() * (4 - 1) + 1), enemySpeed));
@@ -98,8 +102,7 @@ class Player {
 
 // Enemies our player must avoid
 class Enemy {
-  // The image/sprite for our enemies, this uses
-  // a helper we've provided to easily load images
+  // The image/sprite for our enemies, this uses a helper we've provided to easily load images
   constructor(x, y, speed) {
     this.sprite = 'images/enemy-bug.png';
     this.x = x;
@@ -144,7 +147,7 @@ class Enemy {
 // Now instantiate your objects
 // Place all enemy objects in an array called allEnemies
 // Place the player object in a variable called player
-const allEnemies = [...Array(3)].map((_, i) => new Enemy(0, i + 1, Math.random() * (1 - 0.5) + 0.5));
+let allEnemies = [...Array(3)].map((_, i) => new Enemy(0, i + 1, Math.random() * (1 - 0.5) + 0.5));
 const player = new Player();
 
 // This listens for key presses and sends the keys to your
