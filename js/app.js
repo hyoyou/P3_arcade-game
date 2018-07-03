@@ -64,14 +64,14 @@ class Player {
   }
 
   update(dt) {
-    this.boundaryX = this.x > 5;
     this.boundaryY = this.y < 1;
 
     // Check to see if player has won
-    if (this.boundaryY && !this.playing) {
+    if (this.boundaryY) {
       this.x = 2; // Move player back to starting point
       this.y = 5;
-      enemySpeed++; // Increase enemy speed
+      enemySpeed = enemySpeed + 0.5; // Increase enemy speed
+      allEnemies.push(new Enemy(0, Math.random() * (3 - 1) + 1, enemySpeed));
       updateScore();
       levelUp();
     }
@@ -131,7 +131,7 @@ class Enemy {
 
   checkCollisions(player) {
     if (this.y === player.y) {
-      if (this.x >= player.x - 0.3 && this.x <= player.x + 0.3) {
+      if (this.x >= player.x - 0.5 && this.x <= player.x + 0.5) {
         lostLife();
         return true;
       }
@@ -144,7 +144,7 @@ class Enemy {
 // Now instantiate your objects
 // Place all enemy objects in an array called allEnemies
 // Place the player object in a variable called player
-const allEnemies = [...Array(3)].map((_, i) => new Enemy(0, i + 1, 1));
+let allEnemies = [...Array(3)].map((_, i) => new Enemy(0, i + 1, 1));
 const player = new Player();
 
 // This listens for key presses and sends the keys to your
