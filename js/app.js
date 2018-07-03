@@ -1,6 +1,6 @@
 // Game variables
 let playing = true;
-let enemySpeed = 0.5;
+let enemySpeed = 0.25;
 let score = 100;
 let level = 1;
 let lives = 5;
@@ -71,7 +71,7 @@ class Player {
       this.x = 2; // Move player back to starting point
       this.y = 5;
       enemySpeed = enemySpeed + 0.25; // Increase enemy speed
-      allEnemies.push(new Enemy(0, Math.random() * (3 - 1) + 1, enemySpeed));
+      allEnemies.push(new Enemy(0, Math.floor(Math.random() * (4 - 1) + 1), enemySpeed));
       updateScore();
       levelUp();
     }
